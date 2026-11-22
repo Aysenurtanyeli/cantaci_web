@@ -52,7 +52,7 @@ for select
 to anon, authenticated
 using (
   yayinda_mi = true
-  or lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantaci@example.com'
+  or lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantacimwebde@gmail.com'
 );
 
 create policy "products_admin_insert"
@@ -60,7 +60,7 @@ on public.products
 for insert
 to authenticated
 with check (
-  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantaci@example.com'
+  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantacimwebde@gmail.com'
 );
 
 create policy "products_admin_update"
@@ -68,10 +68,10 @@ on public.products
 for update
 to authenticated
 using (
-  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantaci@example.com'
+  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantacimwebde@gmail.com'
 )
 with check (
-  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantaci@example.com'
+  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantacimwebde@gmail.com'
 );
 
 create policy "products_admin_delete"
@@ -79,7 +79,7 @@ on public.products
 for delete
 to authenticated
 using (
-  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantaci@example.com'
+  lower(coalesce(auth.jwt() ->> 'email', '')) = 'cantacimwebde@gmail.com'
 );
 
 create table if not exists public.favorites (

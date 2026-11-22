@@ -22,10 +22,11 @@ export const SHOP = {
   address: "Meydan Mahallesi, 11 Temmuz Caddesi, 63400 Birecik/Şanlıurfa",
   mapUrl: "https://share.google/JrSn0LL0dnwym4YyK",
   instagramHandle: "cantaci_mehmet_63",
-  instagramUrl: "https://www.instagram.com/cantaci_mehmet_63?fqnt=ODFlOTdoZGM1Mzhv",
+  instagramUrl:
+    "https://www.instagram.com/cantaci_mehmet_63?fqnt=ODFlOTdoZGM1Mzhv",
   tiktokUrl: "https://www.tiktok.com/@cantaci_mehmet_63?_r=1&_t=ZS-9BcZtS9uHLg",
   contactEmail: "cantacimwebde@gmail.com",
-  adminEmail: "cantaci@example.com",
+  adminEmail: "cantacimwebde@gmail.com",
 };
 
 export function instagramProfileUrl() {
