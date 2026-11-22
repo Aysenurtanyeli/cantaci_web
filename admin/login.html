@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mağaza yönetimi girişi — Çantacı Mehmet Birecik</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f3eee6" />
+  <link rel="icon" type="image/jpeg" href="../img/çm.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="admin-body" data-admin="login">
+  <main class="admin-login">
+    <section class="login-card auth-card">
+      <span class="logo-mark admin-login-logo"><img src="../img/çm.jpeg" alt="Çantacı Mehmet ÇM işareti" /></span>
+      <p class="eyebrow">Birecik mağazası</p>
+      <h1>Yönetim</h1>
+      <p>Bu bölüm yalnızca mağaza yöneticisine açıktır. Müşteri hesabı ve favoriler için site girişini kullan.</p>
+      <form id="login-form">
+        <label class="field">
+          <span>E-posta</span>
+          <input name="email" type="email" autocomplete="username" required />
+        </label>
+        <label class="field">
+          <span>Şifre</span>
+          <input name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <p class="form-error" id="login-note"></p>
+        <button class="btn btn-dark" type="submit" style="width:100%">Giriş yap</button>
+      </form>
+      <div class="hero-actions">
+        <button class="btn" type="button" id="logout-other">Başka hesaptan çık</button>
+        <a class="btn" href="../index.html">Vitrine dön</a>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ürün yönetimi — Çantacı Mehmet Birecik</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f3eee6" />
+  <link rel="icon" type="image/jpeg" href="../img/çm.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="admin-body" data-admin="panel">
+  <header class="admin-bar">
+    <div>
+      <a class="admin-brand" href="../index.html"><span class="logo-mark admin-brand-logo"><img src="../img/çm.jpeg" alt="" /></span>
+      <strong>Çantacı Mehmet</strong>
+      </a>
+      <span class="admin-mode-label">Yönetim merkezi</span>
+      <p id="admin-who"></p>
+    </div>
+    <div class="nav-actions">
+      <a class="text-btn" href="../index.html">Vitrin</a>
+      <button class="text-btn" type="button" id="panel-logout">Çıkış</button>
+    </div>
+  </header>
+  <main class="admin-shell">
+    <section class="admin-list">
+      <p class="admin-section-kicker">KATALOG YÖNETİMİ</p>
+      <header>
+        <h1>Ürünler</h1>
+        <button class="btn btn-dark" type="button" id="new-product">Yeni</button>
+      </header>
+      <div class="admin-overview" id="admin-overview" aria-live="polite"></div>
+      <p class="admin-list-description">Ürünleri bul, durumlarını takip et ve düzenle.</p>
+      <label class="admin-search">
+        <span class="sr-only">Ürün ara</span>
+        <input id="product-search" type="search" placeholder="Ürün adı veya kodu ara" autocomplete="off" />
+      </label>
+      <div class="admin-filters" role="group" aria-label="Ürünleri filtrele">
+        <button class="admin-filter is-active" type="button" data-product-filter="all" aria-pressed="true">Tümü</button>
+        <button class="admin-filter" type="button" data-product-filter="published" aria-pressed="false">Yayında</button>
+        <button class="admin-filter" type="button" data-product-filter="draft" aria-pressed="false">Taslak</button>
+        <button class="admin-filter" type="button" data-product-filter="sold-out" aria-pressed="false">Tükendi</button>
+      </div>
+      <div id="admin-products"></div>
+    </section>
+    <section class="admin-editor">
+      <div class="editor-head">
+        <h1 id="editor-title">Yeni ürün</h1>
+      </div>
+      <p class="admin-editor-description">Vitrinde yayınlanacak ürün bilgilerini ve görsellerini buradan yönet.</p>
+      <form id="product-form">
+        <div class="form-grid">
+          <label class="field">
+            <span>Ürün kodu</span>
+            <input name="urun_kodu" required maxlength="40" placeholder="CZ-1042" />
+          </label>
+          <label class="field">
+            <span>Fiyat (TL)</span>
+            <input name="fiyat" type="number" min="0" step="1" placeholder="İsteğe bağlı" />
+          </label>
+          <label class="field span-2">
+            <span>Ad</span>
+            <input name="ad" required maxlength="120" placeholder="Toka çanta" />
+          </label>
+          <label class="field">
+            <span>Koleksiyon</span>
+            <select name="kategori" required>
+              <option value="kadin">Kadın</option>
+              <option value="erkek">Erkek</option>
+              <option value="cocuk">Çocuk</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Ürün türü</span>
+            <select name="urun_turu" required>
+              <option value="">Önce tür seçin</option>
+              <option value="canta">Çanta</option>
+              <option value="cuzdan">Cüzdan</option>
+              <option value="valiz">Valiz</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Model</span>
+            <select name="alt_tur" required disabled>
+              <option value="">Önce ürün türü seçin</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Stok</span>
+            <select name="stok_durumu">
+              <option>Stokta</option>
+              <option>Sınırlı</option>
+              <option>Tükendi</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Malzeme</span>
+            <input name="malzeme" maxlength="160" />
+          </label>
+          <label class="field">
+            <span>Ölçüler</span>
+            <input name="olculer" maxlength="160" placeholder="28 × 20 × 10 cm" />
+          </label>
+          <div class="field span-2">
+            <span>Renk seçenekleri</span>
+            <input name="renkler" type="hidden" />
+            <div class="color-adder">
+              <label class="sr-only" for="color-to-add">Eklenecek rengi seç</label>
+              <select id="color-to-add">
+                <option value="">Eklenecek rengi seç</option>
+              </select>
+              <button class="btn color-add-button" id="add-color" type="button">＋ Renk ekle</button>
+            </div>
+            <div class="color-variant-list" id="color-options" aria-label="Eklenen ürün renkleri"></div>
+            <div class="color-selection-summary" id="color-selection-summary" aria-live="polite">Henüz renk seçilmedi.</div>
+            <small class="field-hint">Pembe, Su yeşili gibi her rengi ayrı ekle; “Çok renkli” kullanma. Her rengin fotoğraflarını o rengin kendi alanına yükle. Müşteri detayda renge dokununca ilgili fotoğrafları görür.</small>
+          </div>
+          <label class="field span-2">
+            <span>Açıklama</span>
+            <textarea name="aciklama" maxlength="2000"></textarea>
+          </label>
+          <div class="checks span-2">
+            <label class="check"><input name="kaliteli_mi" type="checkbox" /> <span>Kaliteli seri</span></label>
+            <label class="check"><input name="stand_200_tl" type="checkbox" /> <span>İndirimli ürün</span></label>
+            <label class="check"><input name="one_cikan" type="checkbox" /> <span>Öne çıkan</span></label>
+            <label class="check"><input name="yayinda_mi" type="checkbox" checked /> <span>Yayında</span></label>
+          </div>
+        </div>
+        <p class="form-error" id="form-error"></p>
+        <div class="form-actions">
+          <button class="btn btn-dark" type="submit">Kaydet</button>
+          <button class="btn" type="button" id="delete-product" hidden>Sil</button>
+          <span id="save-status"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="../js/admin.js"></script>
+</body>
+</html>
